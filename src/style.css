@@ -1,0 +1,32 @@
+.text-color{
+    color: aqua;
+}
+
+#wrapper{
+    display: grid;
+    grid-template-columns: 10% 10%;
+    grid-template-rows: 20% 20%r;
+    grid-template-areas: 
+        "a a"
+        "b c";
+}
+
+#a{
+    grid-area: a;
+}
+
+#b{
+    grid-area: b;
+}
+
+#c{
+    grid-area: c;
+}
+
+img{
+    width: 100%;
+}
+
+#wrapper div{
+    overflow: hidden;
+}
