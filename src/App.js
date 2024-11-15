@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './style.css';
 import './bagunii.css';
 import Cusimg from "./Cusimg"
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
 /*function App() {
   return(
@@ -136,7 +137,7 @@ import { useEffect, useState } from 'react';
   )
 }*/
 
-function App() {
+/*function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
@@ -217,6 +218,79 @@ function App() {
           ))}
         </div>
       </div>
+    </div>
+  );
+}*/
+
+/*function App() {
+
+  const [msg, SetMsg] = useState('')
+  const input_ref = useRef()
+
+  function handleLogin(){
+    SetMsg(input_ref.current.value + '님 어서오구연')
+  }
+
+  function handleLogout(){
+    SetMsg('')
+    input_ref.current.value = ''
+  }
+
+  return (
+    <div className='App'>
+      ID:<input ref={input_ref}></input>
+      <button onClick={handleLogin}>Login</button>
+      <div>{msg && msg}</div>
+      {msg && <button onClick={handleLogout}>Logout</button>}
+    </div>
+  )
+}*/
+
+/*function App() {
+
+  return(
+  <div className='App'>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={'페이지 없음'}></Route>
+        <Route path='/a' element={'a 페이지'}></Route>
+        <Route path='/b' element={'b 페이지'}></Route>
+        <Route path='/c' element={'c 페이지'}></Route>
+        <Route path='*' element={'몾참음'}></Route>
+      </Routes>
+    </BrowserRouter>
+  </div>
+  );
+*/
+
+function ButtonNavigation() {
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      {   }
+      <button onClick={() => navigate('/')}>홈 페이지</button>
+      <button onClick={() => navigate('/a')}>a 페이지</button>
+      <button onClick={() => navigate('/b')}>b 페이지</button>
+      <button onClick={() => navigate('/c')}>c 페이지</button>
+      <button onClick={() => navigate('/unknown')}>잘못된 페이지</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <ButtonNavigation /> {  }
+        <Routes>
+          <Route path="/" element={'홈 페이지'} />
+          <Route path="/a" element={'a 페이지'} />
+          <Route path="/b" element={'b 페이지'} />
+          <Route path="/c" element={'c 페이지'} />
+          <Route path="*" element={'잘못된 경로'} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
